@@ -1,5 +1,5 @@
 # Gameboy Birthday Card 🎂🎮
-![image](https://github.com/user-attachments/assets/1d70eb6e-28d3-4044-afeb-4acbc9c0c669)
+![image](https://github.com/user-attachments/assets/eb9822d3-dc16-47d3-97c3-e53c14853517)
 
 ### Projeto desenvolvido em vanilla JS, HTML e CSS como um cartão virtual de aniversário para meu amado.
 🚀 Para visualizar o projeto no ar, <a href="gameboybdaycard.vercel.app" target="_blank">clique aqui.</a>
