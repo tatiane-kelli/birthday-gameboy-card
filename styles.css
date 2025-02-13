@@ -1,5 +1,6 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -22,6 +23,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 5px;
+  z-index: 3;
 }
 
 .right-arrow {
@@ -61,6 +63,7 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
 .overlay h1 {
@@ -69,4 +72,12 @@ canvas {
 
 .overlay p {
   font-size: 1.2em;
+}
+
+footer {
+  margin-top: 50px;
+}
+footer a {
+  text-decoration: none;
+  color: #000;
 }
