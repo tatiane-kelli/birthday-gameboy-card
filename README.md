@@ -1,8 +1,8 @@
 # Gameboy Birthday Card 🎂🎮
-![image](https://github.com/user-attachments/assets/1d70eb6e-28d3-4044-afeb-4acbc9c0c669)
+![image](https://github.com/user-attachments/assets/eb9822d3-dc16-47d3-97c3-e53c14853517)
 
 ### Projeto desenvolvido em vanilla JS, HTML e CSS como um cartão virtual de aniversário para meu amado.
-🚀 Para visualizar o projeto no ar, <a href="gameboybdaycard.vercel.app" target="_blank">clique aqui.</a>
+<p>🚀 Projeto em produção: https://gameboybdaycard.vercel.app/ </p>
 <p>A proposta é um cartão virtual que simule um jogo de plataforma estilo gameboy, com movimentação de personagem linear e predominância dos traços em pixel art. O usuário deve movimentar o personagem para que ele colete os ícones de coisas que lembram aniversário (um bolo, presente, um cone de confetti e um balão) e, ao final, após coletar todos os itens o "jogo" é encerrado com uma mensagem de Level Up com a nova idade do usuário sendo o nível para o qual upou, e as felicitações em forma de pontos de experiência.</p>
 
 ### Sobre o projeto
