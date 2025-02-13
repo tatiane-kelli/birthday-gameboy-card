@@ -13,7 +13,7 @@
     <div class="gameboy">
         <canvas id="gameCanvas" width="800" height="400"></canvas>
         <div class="overlay" id="levelUpMessage">
-            <h1>LEVEL UP!</h1>
+            <h1 class="levelUp">LEVEL UP!</h1>
             <span>Bem-vindo ao nível</span>
             <span style="font-size: 2rem;">22</span>
             <p>+9999 saúde</p>
@@ -24,9 +24,9 @@
         <div class="directions">
             <span>
                 Use as teclas
-                <img src="assets/left-arrow.png" alt="left arrow" class="left-arrow" width="25px" height="25px"/> 
+                <img src="assets/left-arrow.png" alt="left arrow" class="leftArrow" width="25px" height="25px"/> 
                 e
-                <img src="assets/right-arrow.png" alt="right arrow" class="right-arrow" width="25px" height="25px"/>
+                <img src="assets/right-arrow.png" alt="right arrow" class="rightArrow" width="25px" height="25px"/>
                 do seu teclado para se mover.
             </span>
         </div>
@@ -35,6 +35,10 @@
         Developed with love by <a href="https://github.com/tatiane-kelli" target="_blank">devtatiane</a>
         for the best man in the world. Happy 22th, my love!
     </footer>
+
+    <audio id="gameBacktrack" src="assets/sounds/happytrack.mp3"></audio>
+    <audio id="collectedItemFx" src="assets/sounds/collected-item-fx.mp3"></audio>
+    <audio id="levelUpFx" src="assets/sounds/levelup-fx.mp3"></audio>
     <script src="index.js"></script>
 </body>
 </html>

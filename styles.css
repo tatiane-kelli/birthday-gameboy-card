@@ -26,16 +26,16 @@ body {
   z-index: 3;
 }
 
-.right-arrow {
+.rightArrow {
   transform: rotate(180deg);
 }
 
-.directions img.right-arrow {
+.directions img.rightArrow {
   vertical-align: middle;
   display: inline-block;
 }
 
-.directions img.left-arrow {
+.directions img.leftArrow {
   vertical-align: middle;
   display: inline-block;
 }
@@ -68,6 +68,16 @@ canvas {
 
 .overlay h1 {
   font-size: 2.5em;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
 }
 
 .overlay p {

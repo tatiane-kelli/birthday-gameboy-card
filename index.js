@@ -21,7 +21,40 @@ function checkCollision(item) {
            player.y + player.height > item.y;
 }
 
+const bip = document.getElementById('collectedItemFx');
+const levelUp = document.getElementById('levelUpFx');
+const backtrack = document.getElementById('gameBacktrack');
+
+window.addEventListener('load', () => {
+    bip.load();
+    levelUp.load();
+    backtrack.load();
+});
+
+function playBacktrack() {
+    backtrack.loop = true;
+    backtrack.volume = 0.05;
+    backtrack.play();
+}
+
+function stopBacktrack() {
+    backtrack.volume = 0;
+}
+
+function playBipFx() {
+    bip.currentTime = 0;
+    bip.volume = 0.3;
+    bip.play();
+}
+  
+function playLevelUpFx() {
+    levelUp.currentTime = 0;
+    levelUp.volume = 0.3;
+    levelUp.play();
+  }
+
 function updateGame() {
+    playBacktrack();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     const playerImg = new Image();
@@ -36,12 +69,15 @@ function updateGame() {
 
             if (checkCollision(item)) {
                 item.collected = true;
+                playBipFx()
             }
         }
     });
 
     if (items.every(item => item.collected)) {
         document.getElementById("levelUpMessage").style.display = "flex";
+        stopBacktrack();
+        playLevelUpFx()
     }
 
     requestAnimationFrame(updateGame);
