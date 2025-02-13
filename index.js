@@ -1,17 +1,24 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-const player = { x: 50, y: 300, width: 40, height: 40, speed: 5, img: 'assets/boy.png' };
+const player = { x: 50, y: 300, width: 40, height: 40, speed: 5, img: new Image() };
+player.img.src = 'assets/loveofmylife.png';
+
 const items = [
-    { x: 200, y: 300, collected: false, img: 'assets/baloon.png' },
-    { x: 350, y: 300, collected: false, img: 'assets/gift.png' },
-    { x: 500, y: 300, collected: false, img: 'assets/cake.png' },
-    { x: 650, y: 300, collected: false, img: 'assets/confetti.png' }
+    { x: 200, y: 300, collected: false, img: new Image() },
+    { x: 350, y: 300, collected: false, img: new Image() },
+    { x: 500, y: 300, collected: false, img: new Image() },
+    { x: 650, y: 300, collected: false, img: new Image() }
 ];
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") player.x += player.speed;
-    if (e.key === "ArrowLeft") player.x -= player.speed;
+items[0].img.src = 'assets/baloon.png';
+items[1].img.src = 'assets/gift.png';
+items[2].img.src = 'assets/cake.png';
+items[3].img.src = 'assets/confetti.png';
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') player.x += player.speed;
+    if (e.key === 'ArrowLeft') player.x -= player.speed;
 });
 
 function checkCollision(item) {
@@ -21,13 +28,13 @@ function checkCollision(item) {
            player.y + player.height > item.y;
 }
 
-const bip = document.getElementById('collectedItemFx');
-const levelUp = document.getElementById('levelUpFx');
+const bipSound = document.getElementById('collectedItemFx');
+const levelUpSound = document.getElementById('levelUpFx');
 const backtrack = document.getElementById('gameBacktrack');
 
 window.addEventListener('load', () => {
-    bip.load();
-    levelUp.load();
+    bipSound.load();
+    levelUpSound.load();
     backtrack.load();
 });
 
@@ -42,44 +49,47 @@ function stopBacktrack() {
 }
 
 function playBipFx() {
-    bip.currentTime = 0;
-    bip.volume = 0.3;
-    bip.play();
+    bipSound.currentTime = 0;
+    bipSound.volume = 0.3;
+    bipSound.play();
 }
-  
+
 function playLevelUpFx() {
-    levelUp.currentTime = 0;
-    levelUp.volume = 0.3;
-    levelUp.play();
-  }
+    levelUpSound.currentTime = 0;
+    levelUpSound.volume = 0.3;
+    levelUpSound.play();
+}
+
+let levelUpSoundPlayed = false;
 
 function updateGame() {
     playBacktrack();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const playerImg = new Image();
-    playerImg.src = 'assets/loveofmylife.png';
-    ctx.drawImage(playerImg, player.x, player.y, player.width, player.height);
+    ctx.drawImage(player.img, player.x, player.y, player.width, player.height);
 
     items.forEach(item => {
         if (!item.collected) {
-            const img = new Image();
-            img.src = item.img;
-            ctx.drawImage(img, item.x, item.y, 40, 40);
+            ctx.drawImage(item.img, item.x, item.y, 40, 40);
 
             if (checkCollision(item)) {
                 item.collected = true;
-                playBipFx()
+                playBipFx();
             }
         }
     });
 
     if (items.every(item => item.collected)) {
-        document.getElementById("levelUpMessage").style.display = "flex";
+        document.getElementById('levelUpMessage').style.display = 'flex';
         stopBacktrack();
-        playLevelUpFx()
-    }
 
+        if (!levelUpSoundPlayed) {
+            levelUpSoundPlayed = true;
+            setTimeout(() => {
+                playLevelUpFx();
+            }, 100);
+        }
+    }
     requestAnimationFrame(updateGame);
 }
 
